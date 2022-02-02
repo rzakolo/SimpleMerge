@@ -12,8 +12,10 @@
 Механика "мердж" - нажимаешь и удерживаешь ПКМ на предмете, ведешь курсор(а вместе с ним и предмет) на второй предмет, отпускаешь ПКМ, и перенесенный предмет "мерджится" с предметом под ним.
 По достижению 5го ранга, на предмете появляется иконка крестика, клик по которой удаляет предмет, и начисляет очки опыта(баланс отображать в любом месте игрового поля).
 Пример механики игры можно посмотреть тут:
-https://play.google.com/store/apps/details?id=com.mergegame.merge
-https://play.google.com/store/apps/details?id=com.skunkworksgames.mergefriends
+
+<a href="https://play.google.com/store/apps/details?id=com.mergegame.merge">example1</a>
+ 
+<a href="https://play.google.com/store/apps/details?id=com.skunkworksgames.mergefriends">example2</a>
 
 Будет плюсом творческий подход:
 наличие анимации и звуков.  
