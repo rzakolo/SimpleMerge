@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 internal class Potion : MonoBehaviour
 {
@@ -58,7 +53,8 @@ internal class Potion : MonoBehaviour
 
     private void Sell()
     {
-        GameObject.Find("Player").GetComponent<Player>().GetExp();
+        Player player = GameObject.Find("Player").GetComponent<Player>();
+        player.GetExp();
         Destroy(gameObject);
     }
 }
