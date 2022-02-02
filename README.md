@@ -18,6 +18,4 @@
 Будет плюсом творческий подход:
 наличие анимации и звуков.  
 
-
-
-[<img src="https://img.youtube.com/vi/JR1qAj82BBA/maxresdefault.jpg" width="50%">](https://youtu.be/JR1qAj82BBA)
+[<img src="https://img.youtube.com/vi/TB8XbYA85Pc/maxresdefault.jpg" width="50%">](https://youtu.be/TB8XbYA85Pc)
