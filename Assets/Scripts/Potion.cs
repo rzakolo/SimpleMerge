@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using Zenject;
 
 internal class Potion : MonoBehaviour
 {
     public string Name;
     public int Grade;
 
+    private Player _player;
     private Vector2 _mousePosition;
     private Vector2 _previousPosition;
     private bool _onDrag;
@@ -12,6 +14,12 @@ internal class Potion : MonoBehaviour
     private float _timer;
     private float _doubleClick = .3f;
     private int click;
+
+    [Inject]
+    private void Construct(Player player)
+    {
+        _player = player;
+    }
 
     private void Update()
     {
@@ -53,8 +61,7 @@ internal class Potion : MonoBehaviour
 
     private void Sell()
     {
-        Player player = GameObject.Find("Player").GetComponent<Player>();
-        player.GetExp();
+        _player.GetExp();
         Destroy(gameObject);
     }
 }

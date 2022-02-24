@@ -48,7 +48,7 @@ internal class MergeTools : MonoBehaviour
         }
         return false;
     }
-    public static bool CorrectMove(Vector2 position)
+    private static bool CorrectMove(Vector2 position)
     {
         Vector2 chestPosition = new Vector2(0.5f, 0.5f);
         if (position.x >= _min && position.x <= _max

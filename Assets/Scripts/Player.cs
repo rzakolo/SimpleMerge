@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player
 {
     public event Action<float> OnExpEarn;
     public event Action<int> OnLevelUp;
