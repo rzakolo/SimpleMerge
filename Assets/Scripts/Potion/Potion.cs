@@ -36,7 +36,7 @@ internal class Potion : MonoBehaviour
     {
         if (!_onDrag)
         {
-            _previousPosition = transform.position;
+            _previousPosition = _movement.RoundToNearestHalf(transform.position);
         }
         _onDrag = true;
         _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

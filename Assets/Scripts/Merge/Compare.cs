@@ -31,7 +31,7 @@ internal class Compare
         }
         if (_movement.ValidateMove(position))
         {
-            hitInfo[0].transform.position = previousPosition;
+            hitInfo[0].transform.position = position;
             return true;
         }
         return false;//change item position
