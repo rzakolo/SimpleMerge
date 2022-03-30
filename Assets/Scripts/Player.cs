@@ -13,7 +13,6 @@ public class Player
     private int _playerCurrentExp;
     private int _requiredExp = 20;
 
-
     public void GetExp()
     {
         _playerCurrentExp += PotionExp;

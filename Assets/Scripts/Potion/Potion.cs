@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 internal class Potion : MonoBehaviour
@@ -7,6 +8,8 @@ internal class Potion : MonoBehaviour
     public int Grade;
 
     private Player _player;
+    private Compare _compare;
+    private Movement _movement;
     private Vector2 _mousePosition;
     private Vector2 _previousPosition;
     private bool _onDrag;
@@ -15,10 +18,14 @@ internal class Potion : MonoBehaviour
     private float _doubleClick = .3f;
     private int click;
 
+
+
     [Inject]
-    private void Construct(Player player)
+    private void Construct(Player player, Compare compare, Movement movement)
     {
+        _compare = compare;
         _player = player;
+        _movement = movement;
     }
 
     private void Update()
@@ -39,8 +46,8 @@ internal class Potion : MonoBehaviour
     {
         _onDrag = false;
 
-        Vector2 newPosition = MergeTools.RoundToNearestHalf(transform.position);
-        if (MergeTools.Equals(newPosition, _previousPosition) == false)
+        Vector2 newPosition = _movement.RoundToNearestHalf(transform.position);
+        if (_compare.Equals(newPosition, _previousPosition) == false)
         {
             transform.position = newPosition;
         }
@@ -62,6 +69,10 @@ internal class Potion : MonoBehaviour
     private void Sell()
     {
         _player.GetExp();
+        Destroy(gameObject);
+    }
+    internal void Destroy()
+    {
         Destroy(gameObject);
     }
 }

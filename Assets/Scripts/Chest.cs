@@ -1,16 +1,19 @@
 using UnityEngine;
+using Zenject;
 
 public class Chest : MonoBehaviour
 {
-    [SerializeField] private Items items;
-    [SerializeField] private int maxItemGrade;
-    [SerializeField] private MergeTools mergeTools;
+    private PotionSpawner _potionSpawner;
+    private PotionTool _tool;
+
+    [Inject]
+    private void Construct(PotionSpawner potionSpawner)
+    {
+        _potionSpawner = potionSpawner;
+
+    }
     private void OnMouseDown()
     {
-        if (mergeTools.GetFreeCellPos(out Vector2 position))
-        {
-            Potion potion = items.GetItemToChest(maxItemGrade);
-            Instantiate(potion).transform.position = position;
-        }
+        _potionSpawner.Spawn();
     }
 }

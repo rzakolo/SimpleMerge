@@ -9,11 +9,10 @@ public class SceneInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-
-        BindUIService();
         BindPlayer();
+        BindUIService();
+        Container.Bind<Movement>().AsSingle().NonLazy();
     }
-
     private void BindUIService()
     {
         Container.Bind<Image>().FromInstance(progressBar);
@@ -22,6 +21,6 @@ public class SceneInstaller : MonoInstaller
     }
     private void BindPlayer()
     {
-        Container.Bind<Player>().AsSingle();
+        Container.Bind<Player>().AsSingle().NonLazy();
     }
 }

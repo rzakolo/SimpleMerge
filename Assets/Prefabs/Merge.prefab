@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5719926978564016138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5719926978564016136}
+  - component: {fileID: 5719926978564016137}
+  - component: {fileID: 772420594646812843}
+  m_Layer: 0
+  m_Name: Merge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5719926978564016136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5719926978564016138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5719926978564016137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5719926978564016138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f925610e1776e094888a4bee3844da12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &772420594646812843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5719926978564016138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950ed33751293e54298642ec71e10df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - Name: redpotion
+    potionsPrefab:
+    - {fileID: 612754732461957002, guid: 170c70596c2eb354b8c3c70be8d5925d, type: 3}
+    - {fileID: 2119855141696384021, guid: d3e1564081a3af74bad40b1aa49f3aac, type: 3}
+    - {fileID: 7326198736019803356, guid: 3e3d750fd0569db448118731af01895e, type: 3}
+    - {fileID: 2931828783508646441, guid: 3d9058510a0671440a839e82c899c0fd, type: 3}
+    - {fileID: 1669484294871728241, guid: bd846c51d1c323d4ca6253f090e2e0b7, type: 3}
+  - Name: yellowpotion
+    potionsPrefab:
+    - {fileID: 4667598594044702706, guid: 7b2a63dbee478f44a8ef295a1ea99ce1, type: 3}
+    - {fileID: 3596603583937736306, guid: a4413de7149dac64fb8a27011691a4bb, type: 3}
+    - {fileID: 4129891214556516913, guid: c79f65bb1d581a14493d682349462414, type: 3}
+    - {fileID: 1092890026616976765, guid: dd55393f27cf7de4aaea4864f1a9b737, type: 3}
+    - {fileID: 8520069285542049660, guid: 3352dd3d49146424ab94828b9021450a, type: 3}
+  - Name: bluepotion
+    potionsPrefab:
+    - {fileID: 3110083997577733174, guid: 7b6a785b0f8476a48ae36895757dad90, type: 3}
+    - {fileID: 2633314539127203715, guid: c46828fd852fcfe439869e2a32c5577e, type: 3}
+    - {fileID: 4768999685226360071, guid: e754d717f5cde724981c9b947ae9f2df, type: 3}
+    - {fileID: 1014660240952944894, guid: 48623f19ca5790f4382d8a4f0dc80c92, type: 3}
+    - {fileID: 7074119297627415282, guid: 1929625c8d8cf1c479c07a2b0d08ec50, type: 3}
