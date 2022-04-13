@@ -5,6 +5,7 @@ internal class Potion : MonoBehaviour
     public string Name;
     public int Grade;
 
+    private Merge _merge;
     private Vector2 _mousePosition;
     private Vector2 _previousPosition;
     private bool _onDrag;
@@ -12,6 +13,10 @@ internal class Potion : MonoBehaviour
     private float _timer;
     private float _doubleClick = .3f;
     private int click;
+    private void Start()
+    {
+        _merge = GameObject.Find("Merge").GetComponent<Merge>();
+    }
 
     private void Update()
     {
@@ -31,11 +36,8 @@ internal class Potion : MonoBehaviour
     {
         _onDrag = false;
 
-        Vector2 newPosition = MergeTools.RoundToNearestHalf(transform.position);
-        if (MergeTools.Equals(newPosition, _previousPosition) == false)
-        {
-            transform.position = newPosition;
-        }
+        Vector2 newPosition = Merge.RoundToNearestHalf(transform.position);
+        _merge.TryMerge(newPosition, _previousPosition);
         Debug.Log("Dragged");
         DoubleClick();
     }

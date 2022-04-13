@@ -4,7 +4,7 @@ public class Chest : MonoBehaviour
 {
     [SerializeField] private Items items;
     [SerializeField] private int maxItemGrade;
-    [SerializeField] private MergeTools mergeTools;
+    [SerializeField] private Merge mergeTools;
     private void OnMouseDown()
     {
         if (mergeTools.GetFreeCellPos(out Vector2 position))

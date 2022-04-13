@@ -1,54 +1,44 @@
 using UnityEngine;
 
-internal class MergeTools : MonoBehaviour
+internal class Merge : MonoBehaviour
 {
     public LayerMask layer;
-    private static int _layer;
-    private static Items _items;
-    private static float _min = -2.5f;
-    private static float _max = 3.5f;
-    private static int _maxTry = 200;
+    private Compare _compare;
+    private Ray _ray;
+    private int _layer;
+    private Items _items;
+    private float _min = -2.5f;
+    private float _max = 3.5f;
+    private int _maxTry = 200;
     private void Start()
     {
         _items = GetComponent<Items>();
         _layer = layer.value;
+        _ray = new Ray();
+        _compare = new Compare();
     }
-    public static bool Equals(Vector2 position, Vector2 previousPosition)
+    public void TryMerge(Vector2 position, Vector2 previousPosition)
     {
-        var hitInfo = Physics2D.RaycastAll(position, Vector2.zero, 4, _layer);
-        if (hitInfo.Length > 1)
+        var potions = _ray.GetPotionsOnVector(position, _layer);
+
+        if (potions.Length > 1 && _compare.Equals(potions[0], potions[1]))
         {
-            var item1 = hitInfo[0].collider.GetComponent<Potion>();
-            var item2 = hitInfo[1].collider.GetComponent<Potion>();
-            if (item1.Name == item2.Name && item1.Grade == item2.Grade && item1.Grade != 4)
-            {
-                Debug.Log("Equal:true");//merge items
-                Merge(position, item1, item2);
-                return true;
-            }
-            else
-            {
-                Debug.Log("Equal:false");// return to old position
-                ReturnToPrevPosition(previousPosition, item1);
-                return true;
-            }
+            Debug.Log("Equal:true");
+            MergePotion(position, potions[0], potions[1]);
+
         }
-        if (hitInfo.Length == 1 && !CorrectMove(position))
+        else if (potions.Length == 1 && CorrectMove(position))
         {
-            hitInfo[0].transform.position = previousPosition;
-            return true;
+            potions[0].transform.position = position;
+
         }
-        return false;//change item position
+        else
+        {
+            ReturnToPrevPosition(previousPosition, potions[0]);
+        }
+
     }
-    public static bool Equals(Potion potion1, Potion potion2)
-    {
-        if (potion1.Name == potion2.Name && potion1.Grade == potion2.Grade)
-        {
-            return true;
-        }
-        return false;
-    }
-    public static bool CorrectMove(Vector2 position)
+    public bool CorrectMove(Vector2 position)
     {
         Vector2 chestPosition = new Vector2(0.5f, 0.5f);
         if (position.x >= _min && position.x <= _max
@@ -75,8 +65,6 @@ internal class MergeTools : MonoBehaviour
             if (hitInfo.Length == 0)
             {
                 freePosition = cellPos;
-                //chest using sound
-                //chest using animation
                 return true;
             }
         }
@@ -84,7 +72,7 @@ internal class MergeTools : MonoBehaviour
         return false;
     }
 
-    private static void Merge(Vector2 position, Potion potion1, Potion potion2)
+    private void MergePotion(Vector2 position, Potion potion1, Potion potion2)
     {
         //merge animation
 
@@ -99,7 +87,5 @@ internal class MergeTools : MonoBehaviour
     private static void ReturnToPrevPosition(Vector2 position, Potion potion)
     {
         potion.transform.position = position;
-        //returning animation
-        //incorrect move sound
     }
 }

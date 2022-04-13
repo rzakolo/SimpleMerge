@@ -5,13 +5,18 @@ using Random = UnityEngine.Random;
 internal class Items : MonoBehaviour
 {
     [SerializeField] private Item[] items;
+    Compare _compare;
+    private void Start()
+    {
+        _compare = new Compare();
+    }
     public bool GetNextGrade(Potion potion, out Potion newPotion)
     {
         for (int i = 0; i < items.Length; i++)
         {
             for (int k = 0; k < items[i].potionsPrefab.Length; k++)
             {
-                if (MergeTools.Equals(items[i].potionsPrefab[k], potion) && potion.Grade < 4)
+                if (_compare.Equals(items[i].potionsPrefab[k], potion) && potion.Grade < 4)
                 {
                     newPotion = items[i].potionsPrefab[k + 1];
                     return true;

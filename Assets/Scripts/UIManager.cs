@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
         player.OnLevelUp += ChangeLevel;
     }
 
-
     private void ChangeExp(float value)
     {
         progressBar.fillAmount += value;
